@@ -1,0 +1,226 @@
+/* ====== General ====== */
+body {
+    background-color: #121212;
+    color: #e0e0e0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* ====== Navbar ====== */
+nav {
+    background-color: #1e1e1e;
+    padding: 1rem;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    border-bottom: 1px solid #333;
+}
+
+nav a {
+    color: #e0e0e0;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    transition: background 0.3s, color 0.3s;
+}
+
+nav a:hover {
+    background-color: #333;
+    color: #00c896;
+}
+
+/* ====== Contenedor principal ====== */
+h1, h2 {
+    color: #ffffff;
+    text-align: center;
+}
+
+/* ====== Catálogo ====== */
+.productos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    padding: 2rem;
+}
+
+.producto {
+    background-color: #1e1e1e;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0px 4px 12px rgba(0,0,0,0.4);
+    transition: transform 0.2s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.producto:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 6px 16px rgba(0,0,0,0.6);
+}
+
+.producto img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+    background-color: #2a2a2a;
+}
+
+.producto h2 {
+    color: #00c896;
+}
+
+.producto p {
+    color: #e0e0e0;
+    margin: 0.5rem 0;
+}
+
+.producto a {
+    display: inline-block;
+    margin-top: 1rem;
+    background: #00c896;
+    color: #121212;
+    padding: 0.6rem 1rem;
+    border-radius: 8px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+
+.producto a:hover {
+    background: #00e6ac;
+}
+
+/* ====== Formularios ====== */
+form {
+    max-width: 400px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #1e1e1e;
+    border-radius: 12px;
+    box-shadow: 0px 4px 12px rgba(0,0,0,0.4);
+}
+
+form input, form button {
+    width: 100%;
+    padding: 0.7rem;
+    margin-top: 1rem;
+    border: none;
+    border-radius: 6px;
+}
+
+form input {
+    background: #2a2a2a;
+    color: #fff;
+}
+
+form button {
+    background: #00c896;
+    color: #121212;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+form button:hover {
+    background: #00e6ac;
+}
+
+/* ====== Carrito ====== */
+.carrito {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 1rem;
+}
+
+.carrito-item {
+    display: flex;
+    align-items: center;
+    background-color: #1e1e1e;
+    border-radius: 12px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.4);
+    transition: transform 0.2s, box-shadow 0.3s;
+}
+
+.carrito-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.6);
+}
+
+.carrito-item img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-right: 1rem;
+}
+
+.carrito-item-details {
+    flex: 1;
+}
+
+.carrito-item-details h3 {
+    margin: 0;
+    color: #00c896;
+}
+
+.carrito-item-details p {
+    margin: 0.3rem 0;
+}
+
+.carrito-item-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.carrito-item-actions a, .carrito-item-actions button {
+    padding: 0.4rem 0.8rem;
+    border-radius: 8px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+}
+
+.carrito-item-actions a {
+    background-color: #ff5555;
+    color: #fff;
+    transition: background 0.3s;
+}
+
+.carrito-item-actions a:hover {
+    background-color: #ff7777;
+}
+
+.carrito-total {
+    text-align: right;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #00c896;
+    margin-top: 1rem;
+}
+
+.finalizar-pedido {
+    display: block;
+    margin-top: 1rem;
+    padding: 0.6rem 1rem;
+    background: #00c896;
+    color: #121212;
+    border-radius: 8px;
+    font-weight: bold;
+    text-decoration: none;
+    text-align: center;
+    transition: background 0.3s;
+}
+
+.finalizar-pedido:hover {
+    background: #00e6ac;
+}

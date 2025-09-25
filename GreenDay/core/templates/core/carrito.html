@@ -1,0 +1,31 @@
+{% extends "core/base.html" %}
+{% load static %}
+{% block content %}
+<h2>Carrito de Compras</h2>
+
+{% if productos %}
+<div class="carrito">
+    {% for producto in productos %}
+    <div class="carrito-item">
+        <img src="{{ producto.imagen.url }}" alt="{{ producto.nombre }}">
+        <div class="carrito-item-details">
+            <h3>{{ producto.nombre }}</h3>
+            <p>Cantidad: {{ producto.cantidad }}</p>
+            <p>Subtotal: ${{ producto.subtotal }}</p>
+        </div>
+        <div class="carrito-item-actions">
+            <a href="{% url 'eliminar_del_carrito' producto.id %}">Eliminar</a>
+        </div>
+    </div>
+    {% endfor %}
+
+    <div class="carrito-total">
+        <strong>Total: ${{ total }}</strong>
+    </div>
+    <a href="{% url 'finalizar_pedido' %}" class="finalizar-pedido">Finalizar Compra</a>
+</div>
+{% else %}
+<p>Tu carrito está vacío.</p>
+{% endif %}
+
+{% endblock %}

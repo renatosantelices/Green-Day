@@ -1,0 +1,11 @@
+{% extends "core/base.html" %}
+{% block content %}
+<h2>Detalle Pedido {{ pedido.id }}</h2>
+<ul>
+{% for detalle in detalles %}
+    <li>{{ detalle.producto.nombre }} - Cantidad: {{ detalle.cantidad }} - Subtotal: ${{ detalle.subtotal }}</li>
+{% endfor %}
+</ul>
+<p>Total: ${{ pedido.total }}</p>
+<a href="{% url 'historial_pedidos' %}">Volver</a>
+{% endblock %}

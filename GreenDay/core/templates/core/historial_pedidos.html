@@ -1,0 +1,16 @@
+{% extends "core/base.html" %}
+{% block content %}
+<h2>Historial de Pedidos</h2>
+{% if pedidos %}
+    <ul>
+    {% for pedido in pedidos %}
+        <li>
+            Pedido {{ pedido.id }} - {{ pedido.get_estado_display }} - 
+            <a href="{% url 'detalle_pedido' pedido.id %}">Ver detalle</a>
+        </li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No tienes pedidos aún.</p>
+{% endif %}
+{% endblock %}
