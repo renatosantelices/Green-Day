@@ -10,8 +10,6 @@ class ProductoAdmin(admin.ModelAdmin):
     list_display = ('nombre', 'precio', 'stock')
     search_fields = ('nombre',)
 
-from .models import Producto, Invernadero
-
 @admin.register(Invernadero)
 class InvernaderoAdmin(admin.ModelAdmin):
     list_display = ('nombre', 'direccion', 'telefono',)
@@ -30,3 +28,4 @@ class PedidoAdmin(admin.ModelAdmin):
 @admin.register(DetallePedido)
 class DetallePedidoAdmin(admin.ModelAdmin):
     list_display = ('pedido', 'producto', 'cantidad')
+

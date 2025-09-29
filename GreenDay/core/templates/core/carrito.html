@@ -1,5 +1,4 @@
 {% extends "core/base.html" %}
-{% load static %}
 {% block content %}
 <h2>Carrito de Compras</h2>
 
@@ -25,7 +24,8 @@
     <a href="{% url 'finalizar_pedido' %}" class="finalizar-pedido">Finalizar Compra</a>
 </div>
 {% else %}
-<p>Tu carrito está vacío.</p>
+<p class="mensaje">Tu carrito está vacío.</p>
 {% endif %}
 
 {% endblock %}
+

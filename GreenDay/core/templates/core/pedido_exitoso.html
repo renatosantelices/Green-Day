@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Compra en camino</title>
+<style>
+body {
+    background-color: #000; /* Fondo negro */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: monospace;
+    color: #00c896;
+}
+
+/* Mensaje de alerta */
+.alerta {
+    background-color: #1e1e1e;
+    color: #00c896;
+    border: 2px solid #00c896;
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    font-size: 1.5rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 0 12px rgba(0, 200, 150, 0.5);
+    animation: parpadeo 1.5s ease-in-out infinite alternate;
+}
+
+/* Parpadeo suave del mensaje */
+@keyframes parpadeo {
+    0% { opacity: 0.7; }
+    100% { opacity: 1; }
+}
+
+/* Contenedor del camión */
+.camion-container {
+    display: inline-block;
+    white-space: pre; /* Mantener el espaciado del monito */
+    font-size: 18px;
+    color: #00c896; /* Color neón */
+    animation: mover 5s linear infinite, saltar 0.5s ease-in-out infinite alternate;
+}
+
+/* Animación de izquierda a derecha */
+@keyframes mover {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100vw); }
+}
+
+/* Animación tipo salto 8bit */
+@keyframes saltar {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+    100% { transform: translateY(0); }
+}
+
+/* Botón volver al catálogo */
+.boton-catalogo {
+    margin-top: 2rem;
+    padding: 0.8rem 1.5rem;
+    background-color: #00c896;
+    color: #121212;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.boton-catalogo:hover {
+    background-color: #00e6ac;
+}
+</style>
+</head>
+<body>
+
+<div class="alerta">¡Su compra está en camino!</div>
+
+<div class="camion-container">
+             ____  
+   ______   | "o \  
+  /\/\/\/\  | ___/  
+<|\/\/\/\/|_/ /  
+ |___________/  
+ |_|_|  /_/_/  
+</div>
+
+<a href="/catalogo" class="boton-catalogo">Volver al catálogo</a>
+
+</body>
+</html>
+
+
+
+
+
+<!--          ____  
+   ______    | "o \
+  /\/\/\/\   | ___/
+<|\/\/\/\/|_/ /
+ |___________/
+ |_|_|  /_/_/ -->

@@ -1,16 +1,55 @@
 {% extends "core/base.html" %}
+{% load static %}
+
 {% block content %}
-<h2>Historial de Pedidos</h2>
-{% if pedidos %}
-    <ul>
-    {% for pedido in pedidos %}
-        <li>
-            Pedido {{ pedido.id }} - {{ pedido.get_estado_display }} - 
-            <a href="{% url 'detalle_pedido' pedido.id %}">Ver detalle</a>
-        </li>
-    {% endfor %}
-    </ul>
-{% else %}
-    <p>No tienes pedidos aún.</p>
-{% endif %}
+<h1>📦 Historial de Pedidos</h1>
+
+<div class="orders-container">
+  {% for pedido in pedidos %}
+    <div class="order-card">
+      <div class="order-header">
+        <div>
+          <h3>Pedido #{{ pedido.id }}</h3>
+          <div class="pedido-fecha">📅 {{ pedido.fecha|date:"d/m/Y H:i" }}</div>
+        </div>
+
+        <div>
+          {% comment %} Muestra el estado con clase correspondiente {% endcomment %}
+          {% if pedido.estado == 'P' %}
+            <span class="estado estado-pendiente">⏳ Pendiente</span>
+          {% elif pedido.estado == 'E' %}
+            <span class="estado estado-enviado">🚚 Enviado</span>
+          {% elif pedido.estado == 'C' %}
+            <span class="estado estado-completado">✅ Completado</span>
+          {% elif pedido.estado == 'A' %}
+            <span class="estado estado-cancelado">❌ Cancelado</span>
+          {% else %}
+            <span class="estado">{{ pedido.get_estado_display }}</span>
+          {% endif %}
+        </div>
+      </div>
+
+      <div class="pedido-detalles">
+        <ul>
+          {% for detalle in pedido.detalles.all %}
+            <li>
+              <span class="detalle-nombre">{{ detalle.producto.nombre }}</span>
+              <span class="detalle-cantidad">x{{ detalle.cantidad }}</span>
+              <span class="detalle-precio">${{ detalle.subtotal }}</span>
+            </li>
+          {% empty %}
+            <li>No hay detalles para este pedido.</li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <div class="pedido-total">
+        💲 Total: <strong>${{ pedido.total }}</strong>
+      </div>
+    </div>
+  {% empty %}
+    <p class="mensaje">No tienes pedidos registrados.</p>
+  {% endfor %}
+</div>
 {% endblock %}
+
